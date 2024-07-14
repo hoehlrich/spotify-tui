@@ -203,6 +203,7 @@ pub struct KeyBindings {
     pub audio_analysis: Key,
     pub basic_view: Key,
     pub add_item_to_queue: Key,
+    pub reload_spotifyd: Key,
 }
 
 #[derive(Default, Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -285,6 +286,7 @@ impl UserConfig {
                 audio_analysis: Key::Char('v'),
                 basic_view: Key::Char('B'),
                 add_item_to_queue: Key::Char('z'),
+                reload_spotifyd: Key::Char('R'),
             },
             behavior: BehaviorConfig {
                 seek_milliseconds: 5 * 1000,

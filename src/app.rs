@@ -1202,4 +1202,14 @@ impl App {
             self.help_menu_page -= 1;
         }
     }
+
+    pub fn reload_spotifyd(&mut self) {
+        match std::process::Command::new("systemctl")
+            .args(["--user", "restart", "spotifyd"])
+            .output()
+        {
+            Ok(_) => (),
+            Err(e) => eprintln!("{}", e),
+        }
+    }
 }

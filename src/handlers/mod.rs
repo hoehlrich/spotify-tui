@@ -94,6 +94,9 @@ pub fn handle_app(key: Key, app: &mut App) {
         _ if key == app.user_config.keys.basic_view => {
             app.push_navigation_stack(RouteId::BasicView, ActiveBlock::BasicView);
         }
+        _ if key == app.user_config.keys.reload_spotifyd => {
+            app.reload_spotifyd();
+        }
         _ => handle_block_events(key, app),
     }
 }

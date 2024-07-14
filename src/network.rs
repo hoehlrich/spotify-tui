@@ -325,15 +325,7 @@ impl<'a> Network<'a> {
         if let Ok(result) = self.spotify.device().await {
             let mut app = self.app.lock().await;
             app.push_navigation_stack(RouteId::SelectedDevice, ActiveBlock::SelectDevice);
-            if result.devices.is_empty() {
-                match std::process::Command::new("systemctl")
-                    .args(["--user", "restart", "spotifyd"])
-                    .output()
-                {
-                    Ok(_) => (),
-                    Err(e) => eprintln!("{}", e),
-                }
-            } else {
+            if !result.devices.is_empty() {
                 app.devices = Some(result);
                 // Select the first device in the list
                 app.selected_device_index = Some(0);

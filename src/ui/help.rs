@@ -158,6 +158,11 @@ pub fn get_help_docs(key_bindings: &KeyBindings) -> Vec<Vec<String>> {
             String::from("General"),
         ],
         vec![
+            String::from("Restart spotifyd daemon"),
+            key_bindings.reload_spotifyd.to_string(),
+            String::from("General"),
+        ],
+        vec![
             String::from("Enter hover mode"),
             String::from("<Esc>"),
             String::from("Selected block"),
